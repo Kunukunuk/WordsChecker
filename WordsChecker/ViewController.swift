@@ -27,13 +27,23 @@ class ViewController: UIViewController {
     func checkPossibleWords(of: String) {
         
         var wordArray = Array(of)
-        for index in 0..<wordArray.count {
+        var numberOfPossibleWord: [String] = []
+        for _ in 0..<wordArray.count {
             let word = String(wordArray)
+            let returnedWords = testWords(combinedWord: word)
             let removed = wordArray.removeFirst()
             wordArray.append(removed)
             print(word)
+            //numberOfPossibleWord.append(contentsOf: returnedWords)
         }
         
+        var finalWords = Set(numberOfPossibleWord)
+        
+        let filteredWords = finalWords.filter { $0.count <= of.count}
+        
+        for each in filteredWords {
+            print(each)
+        }
         //print(wordArray)
         
     }
@@ -41,15 +51,14 @@ class ViewController: UIViewController {
     func testWords(combinedWord: String) -> [String]{
         
         var stringArray: [String] = []
-        let str = "elloh"
         let textChecker = UITextChecker()
         
-        let misspelledRange = textChecker.rangeOfMisspelledWord(in: str, range: NSRange(0..<str.utf16.count), startingAt: 0, wrap: false, language: "en_US")
+        let misspelledRange = textChecker.rangeOfMisspelledWord(in: combinedWord, range: NSRange(0..<combinedWord.utf16.count), startingAt: 0, wrap: false, language: "en_US")
         if misspelledRange.location != NSNotFound,
-            let guesses = textChecker.guesses(forWordRange: misspelledRange, in: str, language: "en_US") {
+            let guesses = textChecker.guesses(forWordRange: misspelledRange, in: combinedWord, language: "en_US") {
             
             for each in guesses {
-                print(each)
+                stringArray.append(each)
             }
             
         }
