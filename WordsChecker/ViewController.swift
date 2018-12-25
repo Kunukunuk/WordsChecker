@@ -15,14 +15,32 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        testWords()
     }
     
     @IBAction func checkWords(_ sender: UIButton) {
+        
+        let userInput = inputText.text
+        checkPossibleWords(of: userInput!)
+        
     }
     
-    func testWords() {
-        var correctStr : String = String()
+    func checkPossibleWords(of: String) {
+        
+        var wordArray = Array(of)
+        for index in 0..<wordArray.count {
+            let word = String(wordArray)
+            let removed = wordArray.removeFirst()
+            wordArray.append(removed)
+            print(word)
+        }
+        
+        //print(wordArray)
+        
+    }
+    
+    func testWords(combinedWord: String) -> [String]{
+        
+        var stringArray: [String] = []
         let str = "elloh"
         let textChecker = UITextChecker()
         
@@ -36,7 +54,7 @@ class ViewController: UIViewController {
             
         }
         
-        //print(correctStr)
+        return stringArray
     }
 
 }
