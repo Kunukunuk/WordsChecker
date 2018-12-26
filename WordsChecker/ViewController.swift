@@ -31,7 +31,10 @@ class ViewController: UIViewController {
         
         permutations(size: wordArray.count, charArray: &wordArray, possibleArray: &possibleWords)
         
-        print(possibleWords)
+        for each in possibleWords {
+            let array = getPossibleWords(combinedWord: each)
+            print(array)
+        }
         
     }
     
@@ -51,7 +54,7 @@ class ViewController: UIViewController {
         
     }
     
-    func testWords(combinedWord: String) -> [String]{
+    func getPossibleWords(combinedWord: String) -> [String]{
         
         var stringArray: [String] = []
         let textChecker = UITextChecker()
@@ -61,7 +64,9 @@ class ViewController: UIViewController {
             let guesses = textChecker.guesses(forWordRange: misspelledRange, in: combinedWord, language: "en_US") {
             
             for each in guesses {
-                stringArray.append(each)
+                if each.count <= combinedWord.count {
+                    stringArray.append(each)
+                }
             }
             
         }
