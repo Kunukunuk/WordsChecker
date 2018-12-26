@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var inputText: UITextField!
+    var allPossibleWords = Set<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,18 +23,21 @@ class ViewController: UIViewController {
         let userInput = inputText.text
         checkPossibleWords(of: userInput!)
         
+        performSegue(withIdentifier: "displayPossibleWords", sender: nil)
+        
     }
     
     func checkPossibleWords(of: String) {
         
         var wordArray = Array(of)
-        var possibleWords = Array<String>()
+        var permutationWords = Array<String>()
+        //var possibleWords = Set<String>()
         
-        permutations(size: wordArray.count, charArray: &wordArray, possibleArray: &possibleWords)
+        permutations(size: wordArray.count, charArray: &wordArray, possibleArray: &permutationWords)
         
-        for each in possibleWords {
+        for each in permutationWords {
             let array = getPossibleWords(combinedWord: each)
-            print(array)
+            allPossibleWords = allPossibleWords.union(array)
         }
         
     }
@@ -74,5 +78,11 @@ class ViewController: UIViewController {
         return stringArray
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "displayPossibleWords" {
+            let destinationVC = segue.destination as! DisplayTableViewController
+            destinationVC.possibleSetOfWords = allPossibleWords
+        }
+    }
 }
 

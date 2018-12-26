@@ -12,6 +12,7 @@
 		0DE5EA4F21D1C862004FA119 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE5EA4D21D1C862004FA119 /* Main.storyboard */; };
 		0DE5EA5121D1C865004FA119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DE5EA5021D1C865004FA119 /* Assets.xcassets */; };
 		0DE5EA5421D1C865004FA119 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DE5EA5221D1C865004FA119 /* LaunchScreen.storyboard */; };
+		0DE5EA5C21D33540004FA119 /* DisplayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE5EA5B21D33540004FA119 /* DisplayTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		0DE5EA5021D1C865004FA119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DE5EA5321D1C865004FA119 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DE5EA5521D1C865004FA119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DE5EA5B21D33540004FA119 /* DisplayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				0DE5EA4921D1C862004FA119 /* AppDelegate.swift */,
 				0DE5EA4B21D1C862004FA119 /* ViewController.swift */,
+				0DE5EA5B21D33540004FA119 /* DisplayTableViewController.swift */,
 				0DE5EA4D21D1C862004FA119 /* Main.storyboard */,
 				0DE5EA5021D1C865004FA119 /* Assets.xcassets */,
 				0DE5EA5221D1C865004FA119 /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DE5EA4C21D1C862004FA119 /* ViewController.swift in Sources */,
+				0DE5EA5C21D33540004FA119 /* DisplayTableViewController.swift in Sources */,
 				0DE5EA4A21D1C862004FA119 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
