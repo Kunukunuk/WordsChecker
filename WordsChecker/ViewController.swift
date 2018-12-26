@@ -27,38 +27,52 @@ class ViewController: UIViewController {
     func checkPossibleWords(of: String) {
         
         var wordArray = Array(of)
-        var numberOfPossibleWord: [String] = []
-        for _ in 0..<wordArray.count {
+        //var permutationOfWords = permutations(size: wordArray.count, charArray: wordArray)
+        var possibleWords = Array<String>()
+        
+        permutations(size: wordArray.count, charArray: &wordArray, possibleArray: &possibleWords)
+        
+        print(possibleWords)
+        
+        /*for _ in 0..<wordArray.count {
             let word = String(wordArray)
             let returnedWords = testWords(combinedWord: word)
             let removed = wordArray.removeFirst()
             wordArray.append(removed)
             print(word)
             //numberOfPossibleWord.append(contentsOf: returnedWords)
-        }
+        }*/
         
-        var finalWords = Set(numberOfPossibleWord)
+        //var finalWords = Set(numberOfPossibleWord)
         
-        let filteredWords = finalWords.filter { $0.count <= of.count}
+        //let filteredWords = finalWords.filter { $0.count <= of.count}
         
-        for each in filteredWords {
-            print(each)
-        }
+        //print(permutationOfWords)
         //print(wordArray)
         
     }
     
-    func permutations(charArray: Array<Character>) {
-        let size = charArray.count
+    func permutations(size: Int, charArray: inout Array<Character>, possibleArray: inout Array<String>){
+        
+        //var permutationArray = charArray
         
         if size == 1 {
+            let word = String(charArray)
+            possibleArray.append(word)
             print(charArray)
+            //return permutationArray
             return
         }
         
-        for index in 0..<size {
-            permutations(charArray: <#T##Array<Character>#>)
+        for index in 0..<size-1 {
+            permutations(size: size - 1, charArray: &charArray, possibleArray: &possibleArray)
+            charArray.swapAt(size-1, (size%2==1) ? 0:index)
+            //permutationArray = permutations(size: size - 1, charArray: &permutationArray)
+            //permutationArray.swapAt(size - 1, (size%2 == 1) ? 0:index)
         }
+        permutations(size: size-1, charArray: &charArray, possibleArray: &possibleArray)
+        //return permutations(size:size - 1, charArray: &permutationArray)
+        
     }
     
     func testWords(combinedWord: String) -> [String]{
