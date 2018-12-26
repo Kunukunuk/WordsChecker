@@ -48,6 +48,19 @@ class ViewController: UIViewController {
         
     }
     
+    func permutations(charArray: Array<Character>) {
+        let size = charArray.count
+        
+        if size == 1 {
+            print(charArray)
+            return
+        }
+        
+        for index in 0..<size {
+            permutations(charArray: <#T##Array<Character>#>)
+        }
+    }
+    
     func testWords(combinedWord: String) -> [String]{
         
         var stringArray: [String] = []
