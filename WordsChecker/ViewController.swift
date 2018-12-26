@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "displayPossibleWords" {
             let destinationVC = segue.destination as! DisplayTableViewController
-            destinationVC.possibleSetOfWords = allPossibleWords
+            destinationVC.possibleSetOfWords = Array(allPossibleWords)
         }
     }
 }

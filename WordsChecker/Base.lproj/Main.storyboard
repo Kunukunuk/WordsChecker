@@ -63,13 +63,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordCell" id="fWJ-aT-kri" customClass="WordCell" customModule="WordsChecker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WordCell" rowHeight="61" id="fWJ-aT-kri" customClass="WordCell" customModule="WordsChecker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fWJ-aT-kri" id="h1g-Uy-iEz">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPb-EI-e54">
+                                            <rect key="frame" x="21" y="16" width="333" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vPb-EI-e54" firstAttribute="leading" secondItem="h1g-Uy-iEz" secondAttribute="leadingMargin" constant="5" id="PXe-I0-hYy"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vPb-EI-e54" secondAttribute="bottom" constant="5" id="d89-dh-fmh"/>
+                                        <constraint firstItem="vPb-EI-e54" firstAttribute="top" secondItem="h1g-Uy-iEz" secondAttribute="topMargin" constant="5" id="nD7-ps-IxA"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vPb-EI-e54" secondAttribute="trailing" constant="5" id="tOm-Hl-4nZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="wordLabel" destination="vPb-EI-e54" id="e5P-Cf-RVG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

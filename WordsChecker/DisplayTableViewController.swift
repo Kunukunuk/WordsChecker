@@ -10,7 +10,7 @@ import UIKit
 
 class DisplayTableViewController: UITableViewController {
 
-    var possibleSetOfWords = Set<String>()
+    var possibleSetOfWords = Array<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,7 @@ class DisplayTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.title = "Possible Words"
     }
 
     // MARK: - Table view data source
@@ -34,15 +35,14 @@ class DisplayTableViewController: UITableViewController {
         return possibleSetOfWords.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WordCell", for: indexPath) as! WordCell
 
-        // Configure the cell...
+        cell.wordLabel.text = possibleSetOfWords[indexPath.row]
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
