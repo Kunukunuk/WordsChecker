@@ -62,13 +62,15 @@ class ViewController: UIViewController {
         
         var stringArray: [String] = []
         let textChecker = UITextChecker()
+        let originalCharArray = Array(combinedWord).sorted()
         
         let misspelledRange = textChecker.rangeOfMisspelledWord(in: combinedWord, range: NSRange(0..<combinedWord.utf16.count), startingAt: 0, wrap: false, language: "en_US")
         if misspelledRange.location != NSNotFound,
             let guesses = textChecker.guesses(forWordRange: misspelledRange, in: combinedWord, language: "en_US") {
             
             for each in guesses {
-                if each.count <= combinedWord.count {
+                let eachCharArray = Array(each).sorted()
+                if each.count <= combinedWord.count && originalCharArray == eachCharArray{
                     stringArray.append(each)
                 }
             }
