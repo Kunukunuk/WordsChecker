@@ -14,6 +14,7 @@ Shows a list of possible words
 
 Here's a walkthrough of implemented user stories:
 
+![wordchecker](https://user-images.githubusercontent.com/28847045/50462810-c5634c00-0955-11e9-9dc8-a1647ae03722.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
