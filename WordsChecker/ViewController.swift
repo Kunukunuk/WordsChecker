@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         let characterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
         
         if userInput?.rangeOfCharacter(from: characterSet.inverted) != nil {
-            print("hello")
+            createAlert()
         } else {
             checkPossibleWords(of: userInput!)
             
@@ -33,11 +33,17 @@ class ViewController: UIViewController {
         
     }
     
+    func createAlert() {
+        
+        let alert = UIAlertController(title: "Invalid Input", message: "The string you inputed contains non English alphabet characters", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+        
+    }
     func checkPossibleWords(of: String) {
         
         var wordArray = Array(of)
         var permutationWords = Array<String>()
-        //var possibleWords = Set<String>()
         
         permutations(size: wordArray.count, charArray: &wordArray, possibleArray: &permutationWords)
         
