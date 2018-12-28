@@ -23,8 +23,12 @@ class ViewController: UIViewController {
         let userInput = inputText.text
         let characterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
         
-        if userInput?.rangeOfCharacter(from: characterSet.inverted) != nil {
-            createAlert()
+        if userInput == "" {
+            createAlert(errorCode: 2)
+        } else if userInput?.rangeOfCharacter(from: characterSet.inverted) != nil {
+            createAlert(errorCode: 1)
+        } else if (userInput?.count)! >= 1 {
+            createAlert(errorCode: 2)
         } else {
             checkPossibleWords(of: userInput!)
             
@@ -33,11 +37,17 @@ class ViewController: UIViewController {
         
     }
     
-    func createAlert() {
+    func createAlert(errorCode: Int) {
         
-        let alert = UIAlertController(title: "Invalid Input", message: "The string you inputed contains non English alphabet characters", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
+        if errorCode == 1 {
+            let alert = UIAlertController(title: "Invalid Input", message: "The string you inputed contains non English alphabet characters", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        } else if errorCode == 2 {
+            let alert = UIAlertController(title: "Invalid Length", message: "The string you inputed is too short to form a word", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
         
     }
     func checkPossibleWords(of: String) {
