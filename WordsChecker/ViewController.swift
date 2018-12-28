@@ -21,9 +21,15 @@ class ViewController: UIViewController {
     @IBAction func checkWords(_ sender: UIButton) {
         
         let userInput = inputText.text
-        checkPossibleWords(of: userInput!)
+        let characterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
         
-        performSegue(withIdentifier: "displayPossibleWords", sender: nil)
+        if userInput?.rangeOfCharacter(from: characterSet.inverted) != nil {
+            print("hello")
+        } else {
+            checkPossibleWords(of: userInput!)
+            
+            performSegue(withIdentifier: "displayPossibleWords", sender: nil)
+        }
         
     }
     
