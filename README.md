@@ -8,13 +8,14 @@ Shows a list of possible words
 
 - [X] Receive user input
 - [X] Shows a list of possible words given the user input
-- [ ] Error checking to see if it is a word (does not contain space, numbers or/and special characters)
+- [X] Error checking to see if it is a word (does not contain space, numbers or/and special characters)
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
 ![wordchecker](https://user-images.githubusercontent.com/28847045/50462810-c5634c00-0955-11e9-9dc8-a1647ae03722.gif)
+![wordcheckererror](https://user-images.githubusercontent.com/28847045/50531037-3d568100-0ad2-11e9-9d10-c658069a71b4.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
