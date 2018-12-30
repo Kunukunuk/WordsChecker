@@ -1,12 +1,12 @@
 # *WordsChecker*
 
-**WordsChecker** is an iOS app shows you a list of possible words from a given string input.
+**WordsChecker** is an iOS app shows you a list of possible English words from a given string input.
 
 Time spent: **15** hours spent in total
 
 Shows a list of possible words
 
-- [X] Receive user input
+- [X] Receive user input of strings
 - [X] Shows a list of possible words given the user input
 - [X] Error checking to see if it is a word (does not contain space, numbers or/and special characters)
 
